@@ -13,6 +13,7 @@
 		8AC9C2AD24DD701600E9F6BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC9C2AC24DD701600E9F6BD /* Assets.xcassets */; };
 		8AC9C2B024DD701600E9F6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC9C2AE24DD701600E9F6BD /* LaunchScreen.storyboard */; };
 		8AC9C2B824DD766200E9F6BD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC9C2B724DD766200E9F6BD /* MainViewController.swift */; };
+		8AF10DCE24E2BE1200EA119D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF10DCD24E2BE1200EA119D /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8AC9C2AF24DD701600E9F6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AC9C2B124DD701600E9F6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC9C2B724DD766200E9F6BD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8AF10DCD24E2BE1200EA119D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		8AC9C29724DD701500E9F6BD = {
 			isa = PBXGroup;
 			children = (
+				8AF10DCD24E2BE1200EA119D /* Default-568h@2x.png */,
 				8AC9C2A224DD701500E9F6BD /* MyPlaces */,
 				8AC9C2A124DD701500E9F6BD /* Products */,
 			);
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AC9C2B024DD701600E9F6BD /* LaunchScreen.storyboard in Resources */,
+				8AF10DCE24E2BE1200EA119D /* Default-568h@2x.png in Resources */,
 				8AC9C2AD24DD701600E9F6BD /* Assets.xcassets in Resources */,
 				8AC9C2AB24DD701500E9F6BD /* Main.storyboard in Resources */,
 			);
