@@ -10,7 +10,7 @@
         <scene sceneID="515-n4-HBp">
             <objects>
                 <tableViewController id="BWc-H7-RJ2" customClass="MainViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Xy-bv-nc3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9Xy-bv-nc3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -67,6 +67,7 @@
                                     <outlet property="locationLabel" destination="gcL-Fc-CHp" id="IOe-39-4W5"/>
                                     <outlet property="nameLabel" destination="ruO-jf-YoK" id="sJf-vZ-59I"/>
                                     <outlet property="typeLabel" destination="h3I-af-Who" id="wRw-bi-EPF"/>
+                                    <segue destination="qkC-ta-arQ" kind="show" identifier="showDetail" id="Bw9-Cv-hvf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -75,7 +76,7 @@
                             <outlet property="delegate" destination="BWc-H7-RJ2" id="WQi-Ro-cZV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Places" id="YHt-JP-vcK">
+                    <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="YHt-JP-vcK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zel-oG-Jsh">
                             <connections>
                                 <segue destination="K0i-Wa-c6C" kind="presentation" id="fWg-Cc-rrm"/>
@@ -90,9 +91,9 @@
         <!--New Place-->
         <scene sceneID="JGm-o7-6H6">
             <objects>
-                <tableViewController id="qkC-ta-arQ" customClass="NewPlaceViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="pageSheet" id="qkC-ta-arQ" customClass="NewPlaceViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="R5w-pU-RJR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
@@ -108,6 +109,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="preview_image" translatesAutoresizingMaskIntoConstraints="NO" id="rJK-B5-I0x">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -231,29 +233,39 @@
                             <outlet property="delegate" destination="qkC-ta-arQ" id="wBi-nY-WYo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Place" id="LfZ-Hh-6z5">
+                    <navigationItem key="navigationItem" title="New Place" largeTitleDisplayMode="always" id="LfZ-Hh-6z5">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mFQ-Nf-Fgp">
                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="fRn-MO-skx" kind="unwind" unwindAction="cancelAction:" id="3sv-BK-maa"/>
+                                <action selector="cancelAction:" destination="qkC-ta-arQ" id="dDf-Ei-ilJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="dAN-wV-Gjo">
                             <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="fRn-MO-skx" kind="unwind" unwindAction="unwindSegue:" id="PPe-t0-iYw"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="placeImage" destination="rJK-B5-I0x" id="L2a-Tw-nkc"/>
+                        <outlet property="placeLocation" destination="qe1-dG-7s0" id="LFc-x5-eHy"/>
+                        <outlet property="placeName" destination="cmu-ON-wXs" id="T6s-tH-YCY"/>
+                        <outlet property="placeType" destination="w7V-8I-u2l" id="yXc-BW-MFP"/>
+                        <outlet property="saveButton" destination="dAN-wV-Gjo" id="5ab-kB-Yrw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Shm-Km-7bC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fRn-MO-skx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="51"/>
+            <point key="canvasLocation" x="1168" y="51"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zMs-Pb-hTy">
             <objects>
                 <navigationController id="9Uk-Pl-xQc" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ugQ-zL-BOE">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ugQ-zL-BOE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
@@ -270,7 +282,7 @@
         <!--Navigation Controller-->
         <scene sceneID="cKo-91-uq9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K0i-Wa-c6C" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="pageSheet" id="K0i-Wa-c6C" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mLt-bG-A3d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -283,9 +295,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vyy-Hf-pgf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169.5652173913045" y="50.892857142857139"/>
+            <point key="canvasLocation" x="1167" y="-615"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Bw9-Cv-hvf"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="preview_image" width="535" height="535"/>
     </resources>
