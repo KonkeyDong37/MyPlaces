@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Uk-Pl-xQc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -144,6 +145,41 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="140" id="xhw-Cy-ijc">
+                                        <rect key="frame" x="0.0" y="503" width="414" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xhw-Cy-ijc" id="1Mg-i8-g2z">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ofF-gq-6l9" customClass="RatingControl" customModule="MyPlaces" customModuleProvider="target">
+                                                    <rect key="frame" x="81" y="48" width="252" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="Im2-Z8-qc0" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="87" y="48" width="240" height="44"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="44"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Im2-Z8-qc0" firstAttribute="centerY" secondItem="1Mg-i8-g2z" secondAttribute="centerY" id="30p-qZ-NE6"/>
+                                                <constraint firstItem="Im2-Z8-qc0" firstAttribute="centerX" secondItem="1Mg-i8-g2z" secondAttribute="centerX" id="HNO-KT-V5R"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="ofF-gq-6l9"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -154,30 +190,30 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="New Place" largeTitleDisplayMode="always" id="LfZ-Hh-6z5">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="mFQ-Nf-Fgp">
-                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancelAction:" destination="qkC-ta-arQ" id="dDf-Ei-ilJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="dAN-wV-Gjo">
-                            <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="fRn-MO-skx" kind="unwind" unwindAction="unwindSegue:" id="PPe-t0-iYw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cosmosView" destination="Im2-Z8-qc0" id="oXC-D3-QQo"/>
                         <outlet property="placeImage" destination="rJK-B5-I0x" id="L2a-Tw-nkc"/>
                         <outlet property="placeLocation" destination="qe1-dG-7s0" id="LFc-x5-eHy"/>
                         <outlet property="placeName" destination="cmu-ON-wXs" id="T6s-tH-YCY"/>
                         <outlet property="placeType" destination="w7V-8I-u2l" id="yXc-BW-MFP"/>
+                        <outlet property="ratingControl" destination="ofF-gq-6l9" id="XvG-vQ-JXy"/>
                         <outlet property="saveButton" destination="dAN-wV-Gjo" id="5ab-kB-Yrw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Shm-Km-7bC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fRn-MO-skx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1168" y="51"/>
+            <point key="canvasLocation" x="1166.6666666666667" y="50.892857142857139"/>
         </scene>
         <!--My Places-->
         <scene sceneID="DWb-vg-afh">
@@ -206,39 +242,54 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="WuL-B0-lOX">
-                                                    <rect key="frame" x="95" y="8" width="299" height="69"/>
+                                                    <rect key="frame" x="95" y="8" width="201" height="69"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7b-yF-XdZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="299" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="201" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AE-Kt-BJV">
-                                                            <rect key="frame" x="0.0" y="27.5" width="299" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="27.5" width="201" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSR-Ur-G0F">
-                                                            <rect key="frame" x="0.0" y="50" width="299" height="19"/>
+                                                            <rect key="frame" x="0.0" y="50" width="201" height="19"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="90" placeholderIntrinsicHeight="14" translatesAutoresizingMaskIntoConstraints="NO" id="ga7-wX-WIx" customClass="CosmosView" customModule="Cosmos">
+                                                    <rect key="frame" x="304" y="35.5" width="90" height="14"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="uVS-L6-aTf"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                            <real key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="WuL-B0-lOX" secondAttribute="bottom" constant="8" id="4QT-Od-wgd"/>
                                                 <constraint firstItem="gxp-RX-hwV" firstAttribute="centerY" secondItem="qxE-FA-DfC" secondAttribute="centerY" id="GHw-0W-lvl"/>
+                                                <constraint firstItem="ga7-wX-WIx" firstAttribute="centerY" secondItem="qxE-FA-DfC" secondAttribute="centerY" id="HzG-iq-fEP"/>
                                                 <constraint firstItem="WuL-B0-lOX" firstAttribute="leading" secondItem="gxp-RX-hwV" secondAttribute="trailing" constant="15" id="N3B-5v-AmX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ga7-wX-WIx" secondAttribute="trailing" id="RET-5V-gzt"/>
                                                 <constraint firstItem="WuL-B0-lOX" firstAttribute="top" secondItem="qxE-FA-DfC" secondAttribute="top" constant="8" id="Xy3-vV-xGd"/>
                                                 <constraint firstItem="gxp-RX-hwV" firstAttribute="leading" secondItem="qxE-FA-DfC" secondAttribute="leading" constant="15" id="qQE-1o-0Fa"/>
-                                                <constraint firstAttribute="trailing" secondItem="WuL-B0-lOX" secondAttribute="trailing" constant="20" id="quv-ZV-7gx"/>
+                                                <constraint firstItem="ga7-wX-WIx" firstAttribute="leading" secondItem="WuL-B0-lOX" secondAttribute="trailing" constant="8" id="rWg-fl-9W8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cosmosView" destination="ga7-wX-WIx" id="b6s-fD-YE0"/>
                                             <outlet property="imageOfPlace" destination="gxp-RX-hwV" id="Qk8-nJ-s7z"/>
                                             <outlet property="locationLabel" destination="3AE-Kt-BJV" id="f7g-sC-aFO"/>
                                             <outlet property="nameLabel" destination="j7b-yF-XdZ" id="RGm-hq-haw"/>
