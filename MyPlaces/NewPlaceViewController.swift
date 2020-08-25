@@ -83,16 +83,31 @@ class NewPlaceViewController: UITableViewController {
         }
     }
     
-    func savePlace() {
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        var image: UIImage?
+        guard
+            let id = segue.identifier,
+            let mapVC = segue.destination as? MapViewController
+            else { return }
         
-        if imageIsChanged {
-            image = placeImage.image
-        } else {
-            image = #imageLiteral(resourceName: "imagePlaceholder")
+        mapVC.incomeSegueId = id
+        mapVC.mapViewControllerDelegate = self
+        
+        if id == "showPlace" {
+            
+            mapVC.place.name = placeName.text!
+            mapVC.place.location = placeLocation.text
+            mapVC.place.type = placeType.text
+            mapVC.place.imageData = placeImage.image?.pngData()
         }
         
+    }
+    
+    func savePlace() {
+        
+        let image = imageIsChanged ? placeImage.image : #imageLiteral(resourceName: "imagePlaceholder")
         let imageData = image?.pngData()
         
         let newPlace = Place(
@@ -148,7 +163,7 @@ class NewPlaceViewController: UITableViewController {
     }
 }
 
-// MARK: Text field delegate
+// MARK: - Text field delegate
 
 extension NewPlaceViewController: UITextFieldDelegate {
     
@@ -170,7 +185,7 @@ extension NewPlaceViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: Work with image
+// MARK: - Work with image
 
 extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -196,5 +211,12 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationC
         imageIsChanged = true
         
         dismiss(animated: true)
+    }
+}
+
+extension NewPlaceViewController: MapViewControllerDelegate {
+    
+    func getAddress(_ address: String?) {
+        placeLocation.text = address
     }
 }
