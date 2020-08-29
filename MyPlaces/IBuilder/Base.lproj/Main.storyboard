@@ -314,26 +314,17 @@
                                     <action selector="goButtonPressed" destination="qnd-bD-c8N" eventType="touchUpInside" id="2Gj-jm-Y74"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BKu-uL-llt">
-                                <rect key="frame" x="20" y="129" width="374" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="BKu-uL-llt" firstAttribute="top" secondItem="lfC-UJ-e51" secondAttribute="top" constant="85" id="3ei-tl-AIZ"/>
                             <constraint firstItem="Bdl-PI-yEJ" firstAttribute="leading" secondItem="lfC-UJ-e51" secondAttribute="leading" constant="20" id="69E-Dm-bM3"/>
                             <constraint firstItem="lfC-UJ-e51" firstAttribute="trailing" secondItem="WeZ-ME-8Vo" secondAttribute="trailing" constant="20" id="Dei-p2-TFM"/>
                             <constraint firstItem="lfC-UJ-e51" firstAttribute="bottom" secondItem="Bdl-PI-yEJ" secondAttribute="bottom" constant="95" id="FWn-Co-EWJ"/>
                             <constraint firstItem="lfC-UJ-e51" firstAttribute="trailing" secondItem="aw2-uq-gC3" secondAttribute="trailing" constant="20" id="JUx-rh-h5C"/>
                             <constraint firstItem="Dfl-fg-23v" firstAttribute="leading" secondItem="lfC-UJ-e51" secondAttribute="leading" id="Ncf-N5-P0p"/>
                             <constraint firstItem="wgc-Ah-9NU" firstAttribute="centerX" secondItem="I2J-D6-ypJ" secondAttribute="centerX" id="QHi-P9-Ask"/>
-                            <constraint firstItem="BKu-uL-llt" firstAttribute="leading" secondItem="lfC-UJ-e51" secondAttribute="leading" constant="20" id="TYR-3f-ktF"/>
                             <constraint firstAttribute="bottom" secondItem="Dfl-fg-23v" secondAttribute="bottom" id="YOu-F5-aRm"/>
                             <constraint firstItem="aw2-uq-gC3" firstAttribute="top" secondItem="WeZ-ME-8Vo" secondAttribute="bottom" constant="35" id="e2B-Us-TqY"/>
-                            <constraint firstItem="lfC-UJ-e51" firstAttribute="trailing" secondItem="BKu-uL-llt" secondAttribute="trailing" constant="20" id="gXU-PF-HQQ"/>
                             <constraint firstItem="aw2-uq-gC3" firstAttribute="leading" secondItem="lfC-UJ-e51" secondAttribute="leading" constant="20" id="nmO-rH-3Vi"/>
                             <constraint firstItem="nfk-C5-6C3" firstAttribute="centerX" secondItem="I2J-D6-ypJ" secondAttribute="centerX" id="oRP-dF-fek"/>
                             <constraint firstItem="WpG-bN-CuC" firstAttribute="centerY" secondItem="Bdl-PI-yEJ" secondAttribute="centerY" id="pN0-dA-roM"/>
@@ -348,7 +339,6 @@
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="aw2-uq-gC3" id="pYt-pf-urH"/>
-                        <outlet property="destinationInfoLabel" destination="BKu-uL-llt" id="GcJ-k3-M75"/>
                         <outlet property="doneButton" destination="WpG-bN-CuC" id="40z-nX-PA4"/>
                         <outlet property="goButton" destination="wgc-Ah-9NU" id="TNv-8D-8mb"/>
                         <outlet property="mapPinImage" destination="nfk-C5-6C3" id="VLK-rw-ADr"/>
